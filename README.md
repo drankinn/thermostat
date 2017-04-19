@@ -16,7 +16,7 @@ easiest way to run is with docker-compose
 ```bash
 docker-compose up
 ```
-you will that it's listening on http://localhost:8080
+you will see that it's listening on http://localhost:8080
 
 alternatively you can create a virtual env and run the following in a tty-terminal 
 ```bash
@@ -35,4 +35,6 @@ tests are ran using the py.test framework.
       python manage.py test
    ```
    
-   
+## API
+There is a postman config file at tests/thermostat.postman_collection.json
+Load this into postman to test the available endpoints.
