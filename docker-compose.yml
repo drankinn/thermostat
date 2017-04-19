@@ -1,0 +1,6 @@
+version: '2'
+services:
+  therm-service:
+    image: drankinn/therm-service
+    ports:
+      - 8080:8080

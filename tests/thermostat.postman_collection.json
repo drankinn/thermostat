@@ -1,0 +1,92 @@
+{
+	"variables": [],
+	"info": {
+		"name": "thermometer",
+		"_postman_id": "e7065b83-5da0-9db2-234a-a5bdb1c3c8a7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/list",
+			"request": {
+				"url": "http://localhost:8080/list",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/new",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"success\"] = jsonData.success === true;",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/new",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"upstairs\",\n    \"curr_temp\": 66,\n    \"cool_set_point\": 42,\n    \"hot_set_point\": 77,\n    \"fan_mode\": 0\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/edit",
+			"request": {
+				"url": "http://localhost:8080/edit",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3,\n    \"name\": \"Downstairs\",\n    \"curr_temp\": 54,\n    \"booya\": 44\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/view",
+			"request": {
+				"url": "http://localhost:8080/view/3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/delete",
+			"request": {
+				"url": "http://localhost:8080/delete/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
